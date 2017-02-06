@@ -124,6 +124,7 @@ man() {
       man "$@"
 }
 
+# RVM
 # PATH
 export PATH=/usr/local/bin/:${PATH}
 export PATH="/usr/local/android-sdk-macosx/tools/:${PATH}"
@@ -132,8 +133,8 @@ export PATH="/usr/local/google-cloud-sdk/bin/:${PATH}"
 export PATH=~/.cabal/bin/:${PATH}
 export PATH="$PATH:/usr/local/Cellar/rabbitmq/3.6.4/sbin/"
 export PATH="$PATH:/usr/local/depot_tools/"
-export PATH="$PATH:~/.powerline/scripts/"
-
-# RVM
+export PATH="$PATH:$HOME/.powerline/scripts/"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="$PATH:$GEM_HOME/bin/"
