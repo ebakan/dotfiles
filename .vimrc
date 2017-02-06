@@ -78,3 +78,10 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-v>'],
     \ 'AcceptSelection("v")': ['<cr>', '<2-LeftMouse>'],
     \ }
+
+set nocompatible
+filetype off
+
+let &runtimepath.=',~/.vim/bundle/ale'
+
+filetype plugin on
