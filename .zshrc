@@ -1,4 +1,4 @@
-source "$HOME/.secrets"
+[[ -e "$HOME/.secrets" ]] && source "$HOME/.secrets"
 source "/usr/local/bin/virtualenvwrapper.sh"
 
 # oh-my-zsh
@@ -14,7 +14,6 @@ export EDITOR=vim
 export VISUAL=vim
 export TERM=xterm-256color
 set history = 1000000
-export SSL_CERT_FILE="/usr/local/etc/openssl/osx_cert.pem"
 export fpath=(~/.zsh/completion $fpath)
 
 # zsh options
