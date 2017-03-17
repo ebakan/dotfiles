@@ -421,10 +421,8 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
-	<key>NSFontPanelPreviewHeight</key>
-	<real>0.0</real>
 	<key>NSNavLastRootDirectory</key>
-	<string>~</string>
+	<string>~/dotfiles/iterm</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -442,7 +440,7 @@
 	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
 	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
 	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAdCAAAAAAANIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
+	DIAIgAlRMSNAczGdsi0OVtIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
 	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
 	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
 	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
@@ -464,49 +462,33 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>2369 126 445 270 0 0 2880 1778 </string>
-	<key>NSWindow Frame Preferences</key>
-	<string>0 879 606 456 0 0 2880 1777 </string>
+	<string>2332 -342 445 77 1920 -430 1080 1920 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>652 753 616 174 0 0 1920 1177 </string>
+	<string>-1148 670 616 174 -1680 30 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>970 787 620 392 0 0 2560 1440 </string>
+	<string>650 607 620 392 0 0 1920 1200 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>97 233 796 473 0 0 1920 1177 </string>
-	<key>NSWindow Frame UKCrashReporter</key>
-	<string>267 1193 592 584 0 0 2880 1777 </string>
+	<string>1988 57 918 495 1920 -430 1080 1920 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>302 433 970 654 0 0 1920 1177 </string>
+	<string>-1632 388 985 651 -1680 30 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>287 360 970 675 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 10</key>
-	<string>1077 1072 970 675 0 0 2880 1777 </string>
-	<key>NSWindow Frame iTerm Window 11</key>
-	<string>1519 1001 970 675 0 0 2880 1777 </string>
-	<key>NSWindow Frame iTerm Window 12</key>
-	<string>1920 544 970 675 0 0 2880 1777 </string>
-	<key>NSWindow Frame iTerm Window 13</key>
-	<string>1743 1091 970 675 0 0 2880 1777 </string>
-	<key>NSWindow Frame iTerm Window 14</key>
-	<string>1885 555 970 675 0 0 2880 1777 </string>
-	<key>NSWindow Frame iTerm Window 15</key>
-	<string>1888 1067 970 675 0 0 2880 1777 </string>
+	<string>2263 268 665 435 1920 -430 1080 1920 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>177 4 970 675 0 0 1920 1177 </string>
+	<string>218 190 985 651 0 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>64 431 970 675 0 0 1920 1177 </string>
+	<string>1080 622 665 435 0 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>1100 -175 970 675 0 0 1920 1177 </string>
+	<string>0 221 665 435 0 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>920 329 970 675 0 0 1920 1177 </string>
+	<string>2006 185 665 435 1920 -430 1080 1897 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>949 57 970 675 0 0 1920 1177 </string>
+	<string>355 377 985 651 0 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 7</key>
-	<string>948 155 970 675 0 0 1920 1177 </string>
+	<string>688 358 985 651 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 8</key>
-	<string>1891 1064 970 675 0 0 2880 1777 </string>
+	<string>520 502 985 675 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 9</key>
-	<string>1734 1082 970 675 0 0 2880 1777 </string>
+	<string>541 502 985 675 0 0 1920 1177 </string>
 	<key>NeverWarnAboutShortLivedSessions_D31B3FE8-8E07-4880-9D4A-F30DD205087A</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1065,11 +1047,11 @@
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>MenloForPowerline-Regular 22</string>
+			<string>MenloForPowerline-Regular 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MenloForPowerline-Regular 22</string>
+			<string>MenloForPowerline-Regular 14</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -1237,7 +1219,7 @@
 			<key>Use Italic Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1.0246912240982056</real>
+			<real>1</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -1978,26 +1960,14 @@
 			<string>/Users/ebakan</string>
 		</dict>
 	</array>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
-	<integer>0</integer>
-	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
-	<integer>0</integer>
-	<key>NoSyncHaveShownPromoWithId_4</key>
+	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>346BF9CC-FE49-4E74-8CD1-440E53C4E98C</string>
+	<string>AE09C5DC-FD2D-4D19-9D38-CA1BE07A5D8E</string>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>486629810.67287999</real>
-	<key>NoSyncTimeOfLastPromo</key>
-	<real>477696915.26573998</real>
-	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>486615775.70570499</real>
+	<real>508100364.40190399</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2048,7 +2018,9 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/ebakan/github/dotfiles/iterm</string>
+	<string>/Users/ebakan/dotfiles/iterm</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2066,11 +2038,13 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing.xml?shard=4</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=61</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-06T23:43:03Z</date>
+	<date>2017-03-05T04:10:06Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -2097,8 +2071,6 @@
 	<integer>10</integer>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
-	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1456425984</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>

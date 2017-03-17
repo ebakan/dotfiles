@@ -18,6 +18,8 @@ let g:solarized_menu=0
 let g:solarized_termtrans=1
 colorscheme solarized
 set rtp+=~/.powerline/powerline/bindings/vim/
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts = 1
 set laststatus=2
 set t_Co=256
 set backspace=indent,eol,start
@@ -28,6 +30,7 @@ set wildmenu
 set wildmode=longest,list
 set splitbelow
 set splitright
+let g:ackprg = 'rg --vimgrep --no-heading'
 
 let mapleader=" "
 nnoremap n nzz
@@ -40,7 +43,8 @@ nnoremap K <nop>
 nnoremap <F1> <nop>
 nnoremap Q <nop>
 nnoremap Y y$
-nnoremap <NUL> :CtrlPMRU<CR>
+let g:ctrlp_cmd = 'CtrlPMixed'
+nnoremap <NUL> :Ack! 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>v :vsp 
 nnoremap <Leader>s :sp 
@@ -75,8 +79,9 @@ noremap : ;
 vnoremap // y/<C-R>"<CR>
 
 let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-v>'],
-    \ 'AcceptSelection("v")': ['<cr>', '<2-LeftMouse>'],
+    \ 'AcceptSelection("e")': ['<c-v>', '<2-LeftMouse>'],
+    \ 'AcceptSelection("h")': ['<cr>', '<RightMouse>'],
+    \ 'AcceptSelection("v")': ['<c-x>', '<c-cr>', '<c-s>']
     \ }
 
 set nocompatible
