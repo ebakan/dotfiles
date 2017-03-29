@@ -135,7 +135,9 @@ export PATH="$PATH:/usr/local/depot_tools/"
 export PATH="$PATH:$HOME/.powerline/scripts/"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+unsetopt auto_name_dirs
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+set auto_name_dirs
 
 export PATH="$PATH:$GEM_HOME/bin/"
 export XDG_CONFIG_HOME="$HOME/.config"
