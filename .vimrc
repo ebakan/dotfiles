@@ -18,6 +18,7 @@ let g:solarized_menu=0
 let g:solarized_termtrans=1
 colorscheme solarized
 set rtp+=~/.powerline/powerline/bindings/vim/
+set rtp+=/usr/local/opt/fzf
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
 set laststatus=2
@@ -32,6 +33,13 @@ set splitbelow
 set splitright
 let g:ackprg = 'rg --vimgrep --no-heading'
 
+command! FZFMru call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
+
+
 let mapleader=" "
 nnoremap n nzz
 nnoremap N Nzz
@@ -43,13 +51,14 @@ nnoremap K <nop>
 nnoremap <F1> <nop>
 nnoremap Q <nop>
 nnoremap Y y$
-let g:ctrlp_cmd = 'CtrlPMixed'
 nnoremap <NUL> :Ack! 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>v :vsp 
 nnoremap <Leader>s :sp 
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>a :all<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>m :FZFMru<CR>
 " nnoremap <Leader>h <C-w>H
 " nnoremap <Leader>j <C-w>J
 " nnoremap <Leader>k <C-w>K
@@ -61,28 +70,15 @@ nnoremap <C-l> <C-w>l
 autocmd StdinReadPre * let s:std_in=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+let g:fzf_mru_ignore_patterns = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:sneak#label = 1
 
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-nmap s <Plug>(easymotion-overwin-f)
-
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:ale_linters = {'javascript': ['eslint'], 'ruby': ['mri', 'rubocop']}
+let g:ale_linter_aliases = {'javascript.jsx': 'javascript', 'jsx': 'javascript'}
 
 noremap ; :
 noremap : ;
 vnoremap // y/<C-R>"<CR>
-
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-v>', '<2-LeftMouse>'],
-    \ 'AcceptSelection("h")': ['<cr>', '<RightMouse>'],
-    \ 'AcceptSelection("v")': ['<c-x>', '<c-cr>', '<c-s>']
-    \ }
 
 set nocompatible
 filetype off
@@ -90,3 +86,6 @@ filetype off
 let &runtimepath.=',~/.vim/bundle/ale'
 
 filetype plugin on
+
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S

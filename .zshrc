@@ -1,4 +1,5 @@
 [[ -e "$HOME/.secrets" ]] && source "$HOME/.secrets"
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 source "/usr/local/bin/virtualenvwrapper.sh"
 
 # oh-my-zsh
@@ -74,6 +75,13 @@ alias purge-rabbit="rabbitmqadmin list queues|awk 'NR>3{print \$2}'|xargs -I qna
 alias s="say -v"
 alias stgo="stg goto"
 
+function nuke_schema {
+  rm config/db_schema_cache.bin &&
+  rm db/schema_cache.dump &&
+  dump_schema_cache=1 disable_ar_schema_cache=1 bundle exec rake db:build_postgres_schema_cache --trace &&
+  disable_ar_schema=1 disable_ar_schema_cache=1 bundle exec rake db:migrate
+}
+
 #functions
 function cdl {
     cd $1;
@@ -125,7 +133,8 @@ man() {
 
 # RVM
 # PATH
-export PATH=/usr/local/bin/:${PATH}
+export PATH="/usr/local/bin/:${PATH}"
+export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 export PATH="/usr/local/android-sdk-macosx/tools/:${PATH}"
 export PATH="/usr/local/android-sdk-macosx/platform-tools/:${PATH}"
 export PATH="/usr/local/google-cloud-sdk/bin/:${PATH}"
@@ -135,6 +144,7 @@ export PATH="$PATH:/usr/local/depot_tools/"
 export PATH="$PATH:$HOME/.powerline/scripts/"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 unsetopt auto_name_dirs
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 set auto_name_dirs
@@ -144,3 +154,55 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 #source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+#--------------------------------------------------------------------#
+# Global Configuration Variables                                     #
+#--------------------------------------------------------------------#
+
+# Color to use when highlighting suggestion
+# Uses format of `region_highlight`
+# More info: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Widgets
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
+
+# Prefix to use when saving original versions of bound widgets
+export ZSH_AUTOSUGGEST_ORIGINAL_WIDGET_PREFIX=autosuggest-orig-
+
+export ZSH_AUTOSUGGEST_STRATEGY=default
+
+# Widgets that clear the suggestion
+export ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(
+	history-search-forward
+	history-search-backward
+	history-beginning-search-forward
+	history-beginning-search-backward
+	history-substring-search-up
+	history-substring-search-down
+	up-line-or-history
+	down-line-or-history
+	accept-line
+)
+
+# Widgets that accept the entire suggestion
+export ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(
+	forward-char
+	end-of-line
+	vi-forward-char
+	vi-end-of-line
+)
+
+# Widgets that accept the entire suggestion and execute it
+export ZSH_AUTOSUGGEST_EXECUTE_WIDGETS=(
+)
+
+# Widgets that accept the suggestion as far as the cursor moves
+export ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(
+	forward-word
+	vi-forward-word
+	vi-forward-word-end
+	vi-forward-blank-word
+	vi-forward-blank-word-end
+)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

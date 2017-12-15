@@ -407,6 +407,8 @@
 	<integer>0</integer>
 	<key>HotkeyCode</key>
 	<integer>0</integer>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>0</integer>
 	<key>IRMemory</key>
@@ -440,7 +442,7 @@
 	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
 	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
 	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAczGdsi0OVtIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
+	DIAIgAlRMSNAc7Gdsi0OVtIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
 	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
 	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
 	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
@@ -464,31 +466,47 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>2332 -342 445 77 1920 -430 1080 1920 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>-1148 670 616 174 -1680 30 1680 1027 </string>
+	<string>532 658 616 174 0 0 1680 1050 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 607 620 392 0 0 1920 1200 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 139 606 456 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1988 57 918 495 1920 -430 1080 1920 </string>
+	<string>212 191 796 473 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1632 388 985 651 -1680 30 1680 1027 </string>
+	<string>0 0 665 435 0 0 1080 1920 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2263 268 665 435 1920 -430 1080 1920 </string>
+	<string>356 109 665 435 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 10</key>
+	<string>422 479 665 435 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 11</key>
+	<string>443 456 665 435 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 12</key>
+	<string>464 433 665 435 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 13</key>
+	<string>485 410 665 435 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 14</key>
+	<string>506 387 665 435 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 15</key>
+	<string>858 191 665 435 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 16</key>
+	<string>548 341 665 435 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>218 190 985 651 0 0 1920 1080 </string>
+	<string>687 592 665 435 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1080 622 665 435 0 0 1920 1080 </string>
+	<string>0 592 665 435 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>0 221 665 435 0 0 1920 1080 </string>
+	<string>0 4 665 435 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>2006 185 665 435 1920 -430 1080 1897 </string>
+	<string>534 220 665 435 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>355 377 985 651 0 0 1920 1080 </string>
+	<string>0 592 665 435 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 7</key>
-	<string>688 358 985 651 0 0 1920 1057 </string>
+	<string>171 519 665 435 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 8</key>
-	<string>520 502 985 675 0 0 1920 1177 </string>
+	<string>0 592 665 435 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 9</key>
-	<string>541 502 985 675 0 0 1920 1177 </string>
+	<string>467 362 665 435 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_D31B3FE8-8E07-4880-9D4A-F30DD205087A</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1960,6 +1978,8 @@
 			<string>/Users/ebakan</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
@@ -2042,7 +2062,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-05T04:10:06Z</date>
+	<date>2017-11-02T19:38:55Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2091,9 +2111,11 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.14</string>
+	<string>3.1.2.beta.1</string>
 </dict>
 </plist>
