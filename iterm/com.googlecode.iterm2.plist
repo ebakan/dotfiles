@@ -18,6 +18,8 @@
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
 	<integer>1</integer>
+	<key>AppleWindowTabbingMode</key>
+	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
 	<key>CheckTestRelease</key>
@@ -472,11 +474,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 139 606 456 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>212 191 796 473 0 0 1680 1050 </string>
+	<string>68 425 937 464 0 0 1080 1920 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 665 435 0 0 1080 1920 </string>
+	<string>248 592 665 435 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>356 109 665 435 0 0 1680 1027 </string>
+	<string>0 731 665 435 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
 	<string>422 479 665 435 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 11</key>
@@ -2062,7 +2064,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-11-02T19:38:55Z</date>
+	<date>2018-01-11T21:11:32Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2116,6 +2118,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.2.beta.1</string>
+	<string>3.1.5.beta.2</string>
 </dict>
 </plist>

@@ -1,17 +1,35 @@
 [[ -e "$HOME/.secrets" ]] && source "$HOME/.secrets"
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
-source "/usr/local/bin/virtualenvwrapper.sh"
+export PATH="/usr/local/bin:$PATH"
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+alias python2="/usr/local//bin/python"
+#source "/usr/local/bin/virtualenvwrapper.sh"
 
 # oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git tmux gem osx ruby python heroku rvm postgres npm node brew bundler)
+plugins=(
+  brew
+  bundler
+  gem
+  git
+  git-flow-completion
+  # heroku
+  history-substring-search
+  node
+  npm
+  osx
+  postgres
+  python
+  ruby
+  rvm
+  tmux
+  zsh-completions
+)
 source $ZSH/oh-my-zsh.sh
 
 # VARS
 export CLICOLOR=1
-LC_ALL=C
-export EDITOR=vim
+LC_ALL=C export EDITOR=vim
 export VISUAL=vim
 export TERM=xterm-256color
 set history = 1000000
@@ -65,7 +83,7 @@ alias unspoof="sudo ifconfig en0 down && sudo ifconfig en0 up && sudo ifconfig e
 alias redock="killall Dock"
 alias remake="make clean && make"
 alias forgit="vim ~/.oh-my-zsh/plugins/git/git.plugin.zsh"
-alias delete-merged="git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
+alias delete-merged="git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 alias master='git checkout master'
 alias f="fg"
 alias zcp='zmv -C'
@@ -142,12 +160,8 @@ export PATH=~/.cabal/bin/:${PATH}
 export PATH="$PATH:/usr/local/Cellar/rabbitmq/3.6.4/sbin/"
 export PATH="$PATH:/usr/local/depot_tools/"
 export PATH="$PATH:$HOME/.powerline/scripts/"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
-unsetopt auto_name_dirs
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-set auto_name_dirs
 
 export PATH="$PATH:$GEM_HOME/bin/"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -155,7 +169,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 #source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 
 #--------------------------------------------------------------------#
 # Global Configuration Variables                                     #
@@ -169,8 +182,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
 # Prefix to use when saving original versions of bound widgets
 export ZSH_AUTOSUGGEST_ORIGINAL_WIDGET_PREFIX=autosuggest-orig-
 
-export ZSH_AUTOSUGGEST_STRATEGY=default
-
+#export ZSH_AUTOSUGGEST_STRATEGY=history
 # Widgets that clear the suggestion
 export ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(
 	history-search-forward
@@ -206,3 +218,52 @@ export ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(
 )
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source ~/.zsh/zsh-apple-touchbar/zsh-apple-touchbar.zsh
+
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
+
+# https://www.growingwiththeweb.com/2018/01/slow-nvm-init.html
+# Defer initialization of nvm until nvm, node or a node-dependent command is
+# run. Ensure this block is only run once if .bashrc gets sourced multiple times
+# by checking whether __init_nvm is a function.
+if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
+  declare -a __node_commands=('nvm' 'node' 'npm' 'yarn' 'gulp' 'grunt' 'webpack')
+  function __init_nvm() {
+    for i in "${__node_commands[@]}"; do unalias $i; done
+    . "/usr/local/opt/nvm/nvm.sh"
+    unset __node_commands
+    unset -f __init_nvm
+  }
+  for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
+fi
+
+# export YVM_DIR=/Users/ebakan/.yvm
+# [ -r $YVM_DIR/yvm.sh ] && source $YVM_DIR/yvm.sh
+
+if [ -s "$HOME/.yvm/yvm.sh" ]; then
+  export YVM_DIR="$HOME/.yvm"
+  declare -a __yarn_commands=('yvm' 'yarn')
+  function __init_yvm() {
+    for i in "${__yarn_commands[@]}"; do unalias $i; done
+    . "$YVM_DIR/yvm.sh"
+    unset __yarn_commands
+    unset -f __init_yvm
+  }
+  for i in "${__yarn_commands[@]}"; do alias $i='__init_yvm && '$i; done
+fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

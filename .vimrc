@@ -76,6 +76,8 @@ let g:sneak#label = 1
 let g:ale_linters = {'javascript': ['eslint'], 'ruby': ['mri', 'rubocop']}
 let g:ale_linter_aliases = {'javascript.jsx': 'javascript', 'jsx': 'javascript'}
 
+let g:sql_type_default = 'pgsql'
+
 noremap ; :
 noremap : ;
 vnoremap // y/<C-R>"<CR>
