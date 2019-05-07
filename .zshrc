@@ -32,7 +32,6 @@ export CLICOLOR=1
 LC_ALL=C export EDITOR=vim
 export VISUAL=vim
 export TERM=xterm-256color
-set history = 1000000
 export fpath=(~/.zsh/completion $fpath)
 
 # zsh options
@@ -160,6 +159,7 @@ export PATH=~/.cabal/bin/:${PATH}
 export PATH="$PATH:/usr/local/Cellar/rabbitmq/3.6.4/sbin/"
 export PATH="$PATH:/usr/local/depot_tools/"
 export PATH="$PATH:$HOME/.powerline/scripts/"
+export PATH="$HOME/.yvm/shim":$PATH
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
@@ -229,10 +229,6 @@ export FZF_COMPLETION_TRIGGER=''
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-
 # https://www.growingwiththeweb.com/2018/01/slow-nvm-init.html
 # Defer initialization of nvm until nvm, node or a node-dependent command is
 # run. Ensure this block is only run once if .bashrc gets sourced multiple times
@@ -240,7 +236,7 @@ bindkey '^I' $fzf_default_completion
 if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-  declare -a __node_commands=('nvm' 'node' 'npm' 'yarn' 'gulp' 'grunt' 'webpack')
+  declare -a __node_commands=('nvm' 'node' 'npm' 'gulp' 'grunt' 'webpack')
   function __init_nvm() {
     for i in "${__node_commands[@]}"; do unalias $i; done
     . "/usr/local/opt/nvm/nvm.sh"
@@ -250,13 +246,11 @@ if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
   for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
 fi
 
-# export YVM_DIR=/Users/ebakan/.yvm
-# [ -r $YVM_DIR/yvm.sh ] && source $YVM_DIR/yvm.sh
-
 if [ -s "$HOME/.yvm/yvm.sh" ]; then
   export YVM_DIR="$HOME/.yvm"
   declare -a __yarn_commands=('yvm' 'yarn')
   function __init_yvm() {
+    type "__init_nvm" > /dev/null && __init_nvm
     for i in "${__yarn_commands[@]}"; do unalias $i; done
     . "$YVM_DIR/yvm.sh"
     unset __yarn_commands
@@ -264,6 +258,13 @@ if [ -s "$HOME/.yvm/yvm.sh" ]; then
   }
   for i in "${__yarn_commands[@]}"; do alias $i='__init_yvm && '$i; done
 fi
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
+#
+# export YVM_DIR=/Users/ebakan/.yvm
+# [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
