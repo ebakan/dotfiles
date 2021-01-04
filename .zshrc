@@ -23,7 +23,9 @@ plugins=(
   ruby
   rvm
   tmux
+  zsh-autosuggestions
   zsh-completions
+  zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -151,24 +153,20 @@ man() {
 # RVM
 # PATH
 export PATH="/usr/local/bin/:${PATH}"
-export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
-export PATH="/usr/local/android-sdk-macosx/tools/:${PATH}"
-export PATH="/usr/local/android-sdk-macosx/platform-tools/:${PATH}"
-export PATH="/usr/local/google-cloud-sdk/bin/:${PATH}"
-export PATH=~/.cabal/bin/:${PATH}
-export PATH="$PATH:/usr/local/Cellar/rabbitmq/3.6.4/sbin/"
 export PATH="$PATH:/usr/local/depot_tools/"
-export PATH="$PATH:$HOME/.powerline/scripts/"
 export PATH="$HOME/.yvm/shim":$PATH
 export PATH="/usr/local/opt/llvm/bin:$PATH"
-export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
 export PATH="$PATH:$GEM_HOME/bin/"
 export XDG_CONFIG_HOME="$HOME/.config"
 
-#source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Powerline configuration
+if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  source /usr/share/powerline/bindings/bash/powerline.sh
+fi
 
 #--------------------------------------------------------------------#
 # Global Configuration Variables                                     #
@@ -217,9 +215,10 @@ export ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(
 	vi-forward-blank-word-end
 )
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source ~/.zsh/zsh-apple-touchbar/zsh-apple-touchbar.zsh
 
 export FZF_DEFAULT_COMMAND='rg --files'
@@ -233,31 +232,31 @@ bindkey '^I' $fzf_default_completion
 # Defer initialization of nvm until nvm, node or a node-dependent command is
 # run. Ensure this block is only run once if .bashrc gets sourced multiple times
 # by checking whether __init_nvm is a function.
-if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-  declare -a __node_commands=('nvm' 'node' 'npm' 'gulp' 'grunt' 'webpack')
-  function __init_nvm() {
-    for i in "${__node_commands[@]}"; do unalias $i; done
-    . "/usr/local/opt/nvm/nvm.sh"
-    unset __node_commands
-    unset -f __init_nvm
-  }
-  for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
-fi
-
-if [ -s "$HOME/.yvm/yvm.sh" ]; then
-  export YVM_DIR="$HOME/.yvm"
-  declare -a __yarn_commands=('yvm' 'yarn')
-  function __init_yvm() {
-    type "__init_nvm" > /dev/null && __init_nvm
-    for i in "${__yarn_commands[@]}"; do unalias $i; done
-    . "$YVM_DIR/yvm.sh"
-    unset __yarn_commands
-    unset -f __init_yvm
-  }
-  for i in "${__yarn_commands[@]}"; do alias $i='__init_yvm && '$i; done
-fi
+#if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+#  export NVM_DIR="$HOME/.nvm"
+#  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
+#  declare -a __node_commands=('nvm' 'node' 'npm' 'gulp' 'grunt' 'webpack')
+#  function __init_nvm() {
+#    for i in "${__node_commands[@]}"; do unalias $i; done
+#    . "/usr/local/opt/nvm/nvm.sh"
+#    unset __node_commands
+#    unset -f __init_nvm
+#  }
+#  for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
+#fi
+#
+#if [ -s "$HOME/.yvm/yvm.sh" ]; then
+#  export YVM_DIR="$HOME/.yvm"
+#  declare -a __yarn_commands=('yvm' 'yarn')
+#  function __init_yvm() {
+#    type "__init_nvm" > /dev/null && __init_nvm
+#    for i in "${__yarn_commands[@]}"; do unalias $i; done
+#    . "$YVM_DIR/yvm.sh"
+#    unset __yarn_commands
+#    unset -f __init_yvm
+#  }
+#  for i in "${__yarn_commands[@]}"; do alias $i='__init_yvm && '$i; done
+#fi
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -267,4 +266,21 @@ fi
 # [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+#export PATH="$PATH:$HOME/.rvm/bin"
+source /etc/profile.d/rvm.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ebakan/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ebakan/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ebakan/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ebakan/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
