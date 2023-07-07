@@ -4,6 +4,22 @@ autocmd! BufRead,BufNewFile *.hamlc setfiletype haml
 autocmd! BufRead,BufNewFile *.nghaml setfiletype haml
 autocmd! BufRead,BufNewFile seeds.rb setfiletype txt
 
+call plug#begin()
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
+Plug 'dense-analysis/ale'
+Plug 'justinmk/vim-sneak'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
+
+
 set tabstop=4
 set softtabstop=2
 set shiftwidth=2
@@ -17,7 +33,6 @@ set background=dark
 let g:solarized_menu=0
 let g:solarized_termtrans=1
 colorscheme solarized
-source /usr/share/doc/fzf/examples/fzf.vim
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
 set laststatus=2
