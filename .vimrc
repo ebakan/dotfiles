@@ -17,6 +17,12 @@ Plug 'tpope/vim-rails'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'roman/golden-ratio'
+Plug 'onemanstartup/vim-slim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'mileszs/ack.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 
@@ -39,12 +45,13 @@ set laststatus=2
 set t_Co=256
 set backspace=indent,eol,start
 filetype plugin indent on
-set regexpengine=1
+set regexpengine=2
 set virtualedit=block
 set wildmenu
 set wildmode=longest,list
 set splitbelow
 set splitright
+set autoindent
 let g:ackprg = 'rg --vimgrep --no-heading'
 
 command! FZFMru call fzf#run({
@@ -83,6 +90,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 autocmd StdinReadPre * let s:std_in=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+set rtp+=$HOMEBREW_PREFIX/opt/fzf
 
 let g:fzf_mru_ignore_patterns = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 let g:sneak#label = 1
